@@ -1,4 +1,9 @@
 # csi2532_playground
+Lab 04
+
+<img width="498" alt="Capture" src="https://user-images.githubusercontent.com/75296154/153736504-f0981c93-2994-4168-892b-f2fb38a535b1.PNG">
+
+
 ```sql
 CREATE TABLE professors(
  ssn integer, 
