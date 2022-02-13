@@ -5,9 +5,9 @@ Lab 04
 
 
 ```sql
-CREATE TABLE professors(
- ssn integer, 
-primary key (ssn)
+CREATE TABLE Professeur(
+ SSN integer, 
+primary key (SSN)
 );
 
 CREATE TABLE courses(
@@ -16,92 +16,96 @@ primary key (courseid)
 );
 
 CREATE TABLE teaches(
- ssn integer,
+ SSN integer,
  courseid varchar(100),
- semesterid varchar(100), 
-primary key (ssn, courseid),
- foreign key (ssn) references professors,
- foreign key (courseid) references courses
+ semestreID varchar(100), 
+primary key (SSN, courseid),
+ foreign key (SSN) references Professeur,
+ foreign key (courseid) references Cours
 );
 ```
 
 3. Chaque professeur enseigne exactement un cours (ni plus, ni moins).
 <img width="498" alt="Capture" src="https://user-images.githubusercontent.com/75296154/153736504-f0981c93-2994-4168-892b-f2fb38a535b1.PNG">
+
 ```sql
-CREATE TABLE professors(
- ssn integer, 
-primary key (ssn)
+CREATE TABLE Professeur(
+ SSN integer, 
+primary key (SSN)
 );
 
-CREATE TABLE courses(
+CREATE TABLE Cours(
  courseid varchar(100), 
 primary key (courseid)
 );
 
 CREATE TABLE teaches(
- ssn integer,
+ SSN integer,
  courseid varchar(100),
  semesterid varchar(100), 
-primary key (ssn, courseid),
- foreign key (ssn) references professors,
- foreign key (courseid) references courses
+primary key (SSN, courseid),
+ foreign key (SSN) references Professeur,
+ foreign key (courseid) references Cours
 );
 ```
 5. Les professeurs peuvent enseigner le même cours sur plusieurs semestres et chaque doit être enregistrée.
 <img width="498" alt="Capture" src="https://user-images.githubusercontent.com/75296154/153736504-f0981c93-2994-4168-892b-f2fb38a535b1.PNG">
+
 ```sql
-CREATE TABLE professors(
-    ssn integer, 
-    primary key (ssn)
+CREATE TABLE Professeur(
+    SSN integer, 
+    primary key (SSN)
 );
 
-CREATE TABLE courses(
+CREATE TABLE Cours(
     courseid varchar(100), 
     primary key (courseid)
 );
 
 CREATE TABLE teaches(
-    ssn integer,
+    SSN integer,
     courseid varchar(100),
-    semesterid varchar(100), 
-    primary key (ssn, courseid, semesterid),
-    foreign key (ssn) references professors,
-    foreign key (courseid) references courses
+    semestreID varchar(100), 
+    primary key (SSN, courseid, semestreID),
+    foreign key (SSN) references Professeur,
+    foreign key (courseid) references Cours
 );
 ```
 6. Supposons maintenant que certains cours puissent etre enseignes conjointement par une equipe de professeurs, mais il est possible qu'aucun professeur dans une equipe ne puisse enseigner le cours. Modelisez cette situation en introduisant des ensembles d'entites et des ensembles de relations supplementaires si necessaire.
+<img width="520" alt="Capture1" src="https://user-images.githubusercontent.com/75296154/153737129-521ad3e8-3915-46db-ab73-368c38625fd8.PNG">
+
 ```sql
-CREATE TABLE professors(
-    ssn integer, 
-    primary key (ssn)
+CREATE TABLE Professeur(
+    SSN integer, 
+    primary key (SSN)
 );
 
-CREATE TABLE courses(
+CREATE TABLE Cours(
     courseid varchar(100), 
     primary key (courseid)
 );
 
-CREATE TABLE groups(
+CREATE TABLE equipe(
     groupid varchar(100),
-    primary key (groupid)
+    primary key (id)
 );
 
-CREATE TABLE member_of(
-    ssn integer, 
-    groupid varchar(100),
-    primary key (ssn, groupid),
-    foreign key (ssn) references professors,
-    foreign key (groupid) references groups
+CREATE TABLE membre(
+    SSN integer, 
+    id varchar(100),
+    primary key (SSN, id),
+    foreign key (SSN) references Professeur,
+    foreign key (id) references equipe
 );
 
 
 CREATE TABLE teaches(
-    groupid varchar(100),
+    id varchar(100),
     courseid varchar(100),
-    semesterid varchar(100), 
-    primary key (groupid, courseid, semesterid),
-    foreign key (groupid) references groups,
-    foreign key (courseid) references courses
+    semestreID varchar(100), 
+    primary key (id, courseid, semestreID),
+    foreign key (id) references equipe,
+    foreign key (courseid) references cours
 );
 ```
 
