@@ -1,5 +1,5 @@
 # csi2532_playground
-CREATE TABLE professors(
+```CREATE TABLE professors(
  ssn integer, 
 primary key (ssn)
 );
@@ -16,4 +16,4 @@ CREATE TABLE teaches(
 primary key (ssn, courseid),
  foreign key (ssn) references professors,
  foreign key (courseid) references courses
-);
+);```
