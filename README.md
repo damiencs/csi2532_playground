@@ -1,5 +1,5 @@
 # csi2532_playground
-1. Lister les name et birthplace de tous les artists
+1. Lister les name et birthplace de tous les artists    
 ![](https://github.com/damiencs/csi2532_playground/blob/lab6/Screenshots/Ex1.PNG)
 
 2. Lister le title et le price de toutes les artworks après 1600.
@@ -14,7 +14,7 @@
 ![](https://github.com/damiencs/csi2532_playground/blob/lab6/Screenshots/Ex4.PNG)
 
 5. Lister les name et le country de naissance de tous les artists dont le style de peinture est Modern, Baroque or Renaissance.
-6. 
+
 ![](https://github.com/damiencs/csi2532_playground/blob/lab6/Screenshots/Ex5.PNG)
    
 6. Lister tous les détails des artworks dans la base de données, triés
